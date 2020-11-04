@@ -1,0 +1,7 @@
+<%= @note.content %>
+
+<form action="/notes/<%= @note.id %>/delete" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Note">
+</form>
+<a href="/notes/<%= @note.id %>/edit">Edit Note</a>

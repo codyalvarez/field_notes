@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-    has_secure_password
-    has_many :notes
-    validates :username, presence: true
-    validates :email, presence: true
+  has_secure_password
+  has_many :notes
+  validates :username, presence: true
+  validates :email, presence: true
 
   def slug
     self.username.downcase.tr(" ","-")
