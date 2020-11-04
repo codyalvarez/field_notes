@@ -1,16 +1,7 @@
-<% if logged_in? %>
-<%= @error %>
+<h2> Edit Note </h2>
 
-<form action='/notes/<%= @note.id %>' method="post">
-  <input id="hidden" type="hidden" name="_method" value="patch"><br>
-  Edit Your Note:
-
-  <input type="submit" name="submit" id="submit" value="Update">
-
-  </form>
-
-  <a href="/logout">Logout</a>
-
-  <% else %>
-    <h1> You Must Be Logged in to make Notes <h1>
-  <% end %>
+<form method="post" action="/notes/<%=@note.id%>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="content" value="<%= @note.content %>">
+  <input type="submit" value="submit">
+</form>
