@@ -1,3 +1,6 @@
-<%= @notes.each do |note| %>
-  <%= note.content %>
-<% end %>
+<p> Here are your notes, <%= @user.username %>
+<% @user.notes.each do |note| %>
+  <div>
+    <%= note.content %>
+  </div>
+<% end %

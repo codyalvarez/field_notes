@@ -36,7 +36,7 @@ class NotesController < ApplicationController
 
   get '/notes/:id' do
     if logged_in?
-    @note = Note.find_by(id: params[:id])
+    @note = Note.find_by_id(params[:id])
     erb :'/notes/show_note'
     else
       redirect to '/login'

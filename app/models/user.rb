@@ -1,16 +1,15 @@
 class User < ActiveRecord::Base
+  has_many  :notes
   has_secure_password
-  has_many :notes
   validates :username, presence: true
   validates :email, presence: true
 
   def slug
-    self.username.downcase.tr(" ","-")
+    username.downcase.gsub(" ","-")
   end
 
   def self.find_by_slug(slug)
-    self.all.find do |instance|
-      instance.slug == slug
-    end
+    User.all.find{|user| user.slug == slug}
   end
+
 end
